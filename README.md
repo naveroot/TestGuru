@@ -1,24 +1,6 @@
 # README
+Список сущностей:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Тест: сложно сказать, стоит ли разделить вопросы и ответы, и какое отношение должно быть между ними. И какие типы вопросов в тестах будут. Потенциально - Вопросы, Ответы и Тест, в котором логика.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Пользователь: возможно администратор (скорее всего не нужно, просто пользователь будет содержать поле с принадлежностью к группе)
