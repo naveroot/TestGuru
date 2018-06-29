@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  has_many :tests
-  def finished_test_by_level(level)
+  has_many :completed_test
+  has_many :tests, through: :completed_tests
+
+  def tests_with_level(level)
+
   end
 end

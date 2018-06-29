@@ -28,7 +28,10 @@ answers =    [{ title: 'object-oriented, dynamic' },
               { title: 'Order of play' },
               { title: 'Out of position' },
               { title: 'Some music group' }]
-users =      [{ name: 'TestUser', age: 26 }]
+users =      [{ name: 'TestUser1', age: 23 },
+              { name: 'TestUser2', age: 26 },
+              { name: 'TestUser3', age: 22 }]
+
 Category.create categories
 Answer.create answers
 Question.create questions
