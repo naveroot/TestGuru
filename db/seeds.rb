@@ -13,12 +13,12 @@ categories = Category.create! [{ title: 'JS' },
                                { title: 'Ruby' },
                                { title: 'Go' }]
 
-tests = Test.create! [{ title: 'Test1', level: 0, category_id: categories[0].id },
-                      { title: 'Test2', level: 1, category_id: categories[1].id },
-                      { title: 'Test3', level: 2, category_id: categories[2].id }]
+tests = Test.create! [{ title: 'Test1', level: 0, category_id: categories[0].id, author: users[0]},
+                      { title: 'Test2', level: 1, category_id: categories[1].id, author: users[1]},
+                      { title: 'Test3', level: 2, category_id: categories[2].id, author: users[0]}]
 
 
-TestsUsers.create! [{ user_id: users[0].id,  test_id: tests[0].id, status: 'in_progress' },
+TestsUser.create! [{ user_id: users[0].id,  test_id: tests[0].id, status: 'in_progress' },
                     { user_id: users[1].id,  test_id: tests[1].id, status: 'finished' },
                     { user_id: users[0].id,  test_id: tests[2].id }]
 
