@@ -27,5 +27,9 @@ questions = Question.create! [{ body: 'test_question_1',  test_id: tests[0].id }
                               { body: 'test_question_3',  test_id: tests[2].id }]
 
 answers = Answer.create! [{ title: 'test_answer_1', question_id: questions[0].id },
+                          { title: 'test_answer_2', question_id: questions[0].id },
+                          { title: 'test_answer_3', question_id: questions[0].id },
+                          { title: 'test_answer_2', question_id: questions[0].id },
                           { title: 'test_answer_2', question_id: questions[1].id },
-                          { title: 'test_answer_3', question_id: questions[2].id }]
+                          { title: 'test_answer_2', question_id: questions[1].id },
+                          { title: 'test_answer_2', question_id: questions[2].id } ]
