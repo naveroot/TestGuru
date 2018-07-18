@@ -1,0 +1,22 @@
+<h1>Список вопросов и ответов к ним</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Вопрос</th>
+    <th>Ответы</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= link_to question.body, question_path(question.id) %></td>
+      <% question.answers.each do |answer| %>
+      <td><%= answer.title %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
