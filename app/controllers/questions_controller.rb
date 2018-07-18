@@ -1,0 +1,43 @@
+# frozen_string_literal: true
+
+class QuestionsController < ApplicationController
+  before_action :find_question, only: :destroy
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_question_not_found
+  def index
+    @questions = Question.all
+  end
+
+  def show
+    @question = Question.find params[:id]
+  end
+
+  def new
+    @question = Question.new
+  end
+
+  def create
+    Question.create! question_params
+    redirect_to questions_path
+  end
+
+  def destroy
+    @question.destroy
+    redirect_to questions_path
+  end
+
+  private
+
+  def find_question
+    @question = Question.find params[:id]
+  end
+
+  def question_params
+    params.require(:question).permit(:body, :test_id)
+  end
+
+  def rescue_from_question_not_found
+    render plain: 'Question not found'
+  end
+
+end
