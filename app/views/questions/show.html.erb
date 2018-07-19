@@ -16,4 +16,4 @@
 </table>
 <br>
 <%= link_to 'Destroy', @question, method: :delete %>
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Back', test_questions_path(@question.test_id)%>
