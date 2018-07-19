@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find params[:id]
   end
 
   def new
@@ -31,12 +30,12 @@ class QuestionsController < ApplicationController
   private
 
   def find_question
-    @question = Question.find params[:id]
+    @question = Question.find(params[:id])
   end
 
-  def find_test
-    @test = Test.find params[:id]
-  end
+  # def find_test
+  #   @test = Test.find params[:id]
+  # end
 
   def question_params
     params.require(:question).permit(:body, :test_id)
