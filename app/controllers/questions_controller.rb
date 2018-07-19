@@ -15,15 +15,17 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @test = Test.first
   end
 
   def create
     Question.create! question_params
+    redirect_to '/tests/1/questions'
   end
 
   def destroy
     @question.destroy!
-    redirect_to questions_path
+    redirect_to '/tests/1/questions'
   end
 
   private
@@ -35,6 +37,7 @@ class QuestionsController < ApplicationController
   def find_test
     @test = Test.find params[:id]
   end
+
   def question_params
     params.require(:question).permit(:body, :test_id)
   end
