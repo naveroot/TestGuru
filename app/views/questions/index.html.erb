@@ -12,7 +12,7 @@
   <tbody>
   <% @questions.each do |question| %>
     <tr>
-      <td><%= link_to question.body, question_path(question.id) %></td>
+      <td><%= link_to question.body, question_path(question) %></td>
       <% question.answers.each do |answer| %>
       <td><%= answer.title %></td>
       <% end %>
