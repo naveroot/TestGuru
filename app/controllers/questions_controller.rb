@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_question, only: :destroy
+  before_action :find_question, only: %i[show]
+  before_action :find_test, only: %i[index destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_question_not_found
   def index
-    @questions = Question.all
+    @questions = @test.questions
   end
 
-  def show
-    @question = Question.find params[:id]
-  end
+  def show; end
 
   def new
     @question = Question.new
@@ -18,18 +17,23 @@ class QuestionsController < ApplicationController
 
   def create
     Question.create! question_params
-    redirect_to questions_path
+    redirect_to test_questions(@test.id)
   end
 
   def destroy
-    @question.destroy
-    redirect_to questions_path
+    render plain 'Deleting...'
+    @question.destroy!
+    render plain 'Deleted'
   end
 
   private
 
+  def find_test
+    @test = Test.find(params[:test_id])
+  end
+
   def find_question
-    @question = Question.find params[:id]
+    @question = Question.find(params[:id])
   end
 
   def question_params
@@ -39,5 +43,4 @@ class QuestionsController < ApplicationController
   def rescue_from_question_not_found
     render plain: 'Question not found'
   end
-
 end

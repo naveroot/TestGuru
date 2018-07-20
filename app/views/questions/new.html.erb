@@ -1,15 +1,9 @@
-<%= form_with(model: @question, local: true) do |form| %>
+<%= form_with(model: [:test, @question]) do |form| %>
 
   <div class="field">
     <%= form.label :body %>
     <%= form.text_field :body %>
   </div>
-
-  <div class="field">
-    <%= form.label :test_id %>
-    <%= form.collection_select :test_id, Test.all, :id, :title %>
-  </div>
-
 
   <div class="actions">
     <%= form.submit %>
