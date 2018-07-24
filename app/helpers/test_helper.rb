@@ -5,4 +5,8 @@ module TestHelper
     TEST_LEVELS[test.level] || :hero
   end
 
+  def test_header(test)
+    test.persisted? ? "Редактировать тест #{test.title}" : "Новый тест"
+  end
+
 end
