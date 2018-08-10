@@ -15,6 +15,7 @@
 </tbody>
 </table>
 <br>
+
+<%= link_to 'Edit', edit_question_path(@question) %>
 <%= link_to 'Destroy', @question, method: :delete %>
 <%= link_to 'Back', test_questions_path(@question.test_id)%>
-<p>@question = <%= @question %> </p>

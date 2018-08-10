@@ -1,0 +1,4 @@
+<%= render 'form', question: @question, test: @test %>
+
+<%= link_to 'Show', @question %>
+<%= link_to 'Back', test_questions_path(@question.test_id)%>

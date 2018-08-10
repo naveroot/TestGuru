@@ -1,0 +1,22 @@
+<h1>Тест: <%=@test.title%></h1>
+<table>
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>Ответ</th>
+  </tr>
+<tbody>
+<% @test.questions.each do |question| %>
+  <tr>
+    <td><%= question.id %></td>
+    <td><%= link_to question.body, question_path(question) %></td>
+  </tr>
+<% end %>
+
+</tbody>
+</table>
+<br>
+
+<%= link_to 'Edit', edit_test_path(@test) %>
+<%= link_to 'Destroy', @test, method: :delete %>
+<%= link_to 'Back', tests_path%>
