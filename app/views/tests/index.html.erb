@@ -8,16 +8,7 @@
     <th>Questions</th>
     <th>Author</th>
   </tr>
-
-  <% @tests.each do |test| %>
-    <tr>
-      <td><%= link_to test.title, test_path(test) %></td>
-      <td><%= test.category.title %></td>
-      <td><%= test_level(test) %></td>
-      <td><%= test.questions.count %></td>
-      <td><%= test.author.name %></td>
-    </tr>
-  <% end %>
+  <%= render @tests %>
 </table>
 
 <p><%= link_to 'Создать тест', new_test_path %></p>

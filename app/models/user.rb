@@ -4,11 +4,15 @@ class User < ApplicationRecord
   # has_many :tests_users
   # has_many :tests, through: :tests_users
 
-  has_many :authored_tests, class_name: 'Test', foreign_key: :user_id
+  has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
 
   validates :email, presence: true, uniqueness: true
 
   def tests_with_level(level)
     tests.where(level: level)
+  end
+
+  def test_passage(test)
+    test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 end
