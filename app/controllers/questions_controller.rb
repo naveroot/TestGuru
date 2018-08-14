@@ -14,6 +14,9 @@ class QuestionsController < ApplicationController
 
   def edit; end
 
+  def start
+  end
+
   def update
     if @question.update(question_params)
       redirect_to @question

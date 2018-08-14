@@ -1,22 +1,10 @@
 <h1>Тест: <%=@test.title%></h1>
-<table>
-  <thead>
-  <tr>
-    <th>id</th>
-    <th>Ответ</th>
-  </tr>
-<tbody>
-<% @test.questions.each do |question| %>
-  <tr>
-    <td><%= question.id %></td>
-    <td><%= link_to question.body, question_path(question) %></td>
-  </tr>
-<% end %>
-
-</tbody>
-</table>
+<h3>Level: <%= @test.level%></h3>
+<%= link_to 'New question', new_test_question_path(@test) %>
 <br>
+<h2> Questions</h2>
+<ol>
+  <%= render @test.questions %>
+</ol>
 
-<%= link_to 'Edit', edit_test_path(@test) %>
-<%= link_to 'Destroy', @test, method: :delete %>
 <%= link_to 'Back', tests_path%>
