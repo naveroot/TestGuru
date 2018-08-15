@@ -22,6 +22,14 @@ class TestPassage < ApplicationRecord
     correct_questions.to_f / test.questions.count * 100
   end
 
+  def current_question_number
+    test.questions.order(:id).where('id < ?', current_question.id).count + 1
+  end
+
+  def numbers_count
+    test.questions.count
+  end
+
   private
 
   def before_validation_set_first_question

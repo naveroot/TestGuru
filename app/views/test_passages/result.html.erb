@@ -1,2 +1,4 @@
 <h1> <%= @test_passage.test.title %> was Completed!</h1>
 <%= render 'result_message', message: result_message(@test_passage.success_result)  %>
+
+<%= link_to 'Back', tests_path%>

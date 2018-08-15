@@ -6,4 +6,8 @@ module TestPassagesHelper
       {css_class: 'pass_test', text: "You pass test with #{result}% correct questions"}
     end
   end
+
+  def progress_bar(test)
+    "Вопрос №#{test.current_question_number} из #{test.numbers_count}"
+  end
 end
