@@ -6,5 +6,5 @@ class Question < ApplicationRecord
 
   validates :body, presence: true
 
-  scope :correct, -> { where(correct: true).order(created_at: :desc) }
+  # scope :correct, -> { where(correct: true).order(created_at: :desc) }
 end
