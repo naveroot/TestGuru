@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestsController < ApplicationController
   before_action :find_test, only: %i[show destroy edit update start]
   before_action :find_user, only: :start
@@ -8,6 +10,7 @@ class TestsController < ApplicationController
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end
+
   def index
     @tests = Test.all
   end
@@ -61,4 +64,3 @@ class TestsController < ApplicationController
     render plain: 'Question not found'
   end
 end
-
