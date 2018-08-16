@@ -23,7 +23,7 @@ class AnswersController < ApplicationController
   def edit; end
 
   def update
-    if @answer.update
+    if @answer.update(answer_params)
       redirect_to @answer, notice: 'done'
     else
       render :new
