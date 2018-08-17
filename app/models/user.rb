@@ -11,8 +11,8 @@ class User < ApplicationRecord
   has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
 
   validates :email, presence: true, uniqueness: true
-  validates :password_digest, presence: true, if: Proc.new { |u| u.password_digest.blank? }
-  validates :password, confirmation: true
+  # validates :password_digest, presence: true, if: Proc.new { |u| u.password_digest.blank? }
+  # validates :password, confirmation: true
 
   has_secure_password
 
@@ -23,11 +23,14 @@ class User < ApplicationRecord
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test)
   end
-
+#
 #   def authenticate(password_string)
+#     p password_string
+#     p digest(password_string)
+#     p password_digest
 #     digest(password_string) == password_digest ? self : false
 #   end
-#
+# #
 #   def password=(password_string)
 #     if password_string.nil?
 #       self.password_digest = nil
@@ -37,10 +40,10 @@ class User < ApplicationRecord
 #     end
 #   end
 #
-#   private
-#
-#   def digest(string)
-#     Digest::SHA1.hexdigest(string)
-#   end
-#
+  private
+
+  def digest(string)
+    Digest::SHA1.hexdigest(string)
+  end
+
 end
