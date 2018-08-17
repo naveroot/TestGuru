@@ -5,6 +5,4 @@ class Question < ApplicationRecord
   belongs_to :test
 
   validates :body, presence: true
-
-  scope :correct, -> { where(correct: true).order(created_at: :desc) }
 end

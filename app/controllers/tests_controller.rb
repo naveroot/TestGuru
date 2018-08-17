@@ -1,7 +1,15 @@
+# frozen_string_literal: true
+
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[show destroy edit update]
+  before_action :find_test, only: %i[show destroy edit update start]
+  before_action :find_user, only: :start
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_test_not_found
+
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
 
   def index
     @tests = Test.all
@@ -40,6 +48,10 @@ class TestsController < ApplicationController
 
   private
 
+  def find_user
+    @user = User.first
+  end
+
   def find_test
     @test = Test.find(params[:id])
   end
@@ -52,4 +64,3 @@ class TestsController < ApplicationController
     render plain: 'Question not found'
   end
 end
-

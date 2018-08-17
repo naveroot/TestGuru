@@ -1,21 +1,14 @@
 <h1>Вопос: <%=@question.body%></h1>
-<table>
-  <thead>
-  <tr>
-    <th>id</th>
-    <th>Ответ</th>
-  </tr>
-<tbody>
-<% @question.answers.each do |answer| %>
-  <tr>
-    <td><%= answer.id %></td>
-    <td><%= answer.title %></td>
-  </tr>
-<% end %>
-</tbody>
-</table>
-<br>
+<h5>
+  <%= @question.test.title %>
+</h5>
+
+<%= link_to 'New Answer', new_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
 
 <%= link_to 'Edit', edit_question_path(@question) %>
 <%= link_to 'Destroy', @question, method: :delete %>
-<%= link_to 'Back', test_questions_path(@question.test_id)%>
+<%= link_to 'Back', test_path(@question.test)%>

@@ -22,3 +22,9 @@
     width: 100%;
     background-color: rgb(135, 206, 250);
 }
+.pass_test {
+    color: forestgreen;
+}
+.fail_test {
+    color: #B00100;
+}

@@ -18,9 +18,9 @@ tests = Test.create! [{ title: 'Test1', level: 0, category_id: categories[0].id,
                       { title: 'Test3', level: 2, category_id: categories[2].id, author: users[0]}]
 
 
-TestsUser.create! [{ user_id: users[0].id,  test_id: tests[0].id, status: 'in_progress' },
-                    { user_id: users[1].id,  test_id: tests[1].id, status: 'finished' },
-                    { user_id: users[0].id,  test_id: tests[2].id }]
+# TestsUser.create! [{ user_id: users[0].id,  test_id: tests[0].id, status: 'in_progress' },
+#                     { user_id: users[1].id,  test_id: tests[1].id, status: 'finished' },
+#                     { user_id: users[0].id,  test_id: tests[2].id }]
 
 questions = Question.create! [{ body: 'test_question_1',  test_id: tests[0].id },
                               { body: 'test_question_2',  test_id: tests[1].id },
