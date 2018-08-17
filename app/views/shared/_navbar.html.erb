@@ -1,0 +1,10 @@
+<div class="topnav">
+  <a class="active" href="/">TestGuru</a>
+  <% if logged_in? %>
+  <a href="<%=logout_path %>">Выход</a>
+    <% else %>
+  <a href="<%=login_path %>">Login</a>
+  <a href="<%=signup_path %>">Signup</a>
+    <% end %>
+</div>
+
