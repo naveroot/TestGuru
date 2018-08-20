@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def welcome_message
-    if logged_in?
+    if user_signed_in?
       content_tag :div, class: 'nav user' do
         "Welcome, #{current_user.name} Guru"
       end

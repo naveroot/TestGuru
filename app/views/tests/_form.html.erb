@@ -14,7 +14,7 @@
 
   <p><div class="field">
   <%= form.label :author_id %>
-  <%= form.collection_select :author_id, User.all, :id, :name %>
+  <%= form.collection_select :author_id, User.all, :id, :email %>
 </div>
 
   <div class="actions">

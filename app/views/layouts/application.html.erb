@@ -11,8 +11,7 @@
 
   <body>
   <p><%= render 'shared/navbar' %></p>
-  <%= flash_messages %>
-  <%= welcome_message %>
+  <%= render 'shared/errors' %>
 
   <%= yield %>
   <%= render 'shared/footer' %>
