@@ -12,11 +12,6 @@
     <%= form.collection_select :category_id, Category.all, :id, :title %>
   </div>
 
-  <p><div class="field">
-  <%= form.label :author_id %>
-  <%= form.collection_select :author_id, User.all, :id, :email %>
-</div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
