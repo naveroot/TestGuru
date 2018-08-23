@@ -3,12 +3,12 @@
   <%= @question.test.title %>
 </h5>
 
-<%= link_to 'New Answer',  new_admin_question_answer_path(@question) %>
+<%= link_to t('links.new_answer'),  new_admin_question_answer_path(@question) %>
 
 <ol>
   <%= render @question.answers %>
 </ol>
 
-<%= link_to 'Edit', edit_admin_question_path(@question) %>
-<%= link_to 'Destroy', admin_question_path(@question), method: :delete %>
-<%= link_to 'Back', admin_tests_path(@question.test)%>
+<%= link_to t('links.edit'), edit_admin_question_path(@question) %>
+<%= link_to t('links.delete'), admin_question_path(@question), method: :delete %>
+<%= link_to t('links.back'), admin_test_path(@question.test)%>
