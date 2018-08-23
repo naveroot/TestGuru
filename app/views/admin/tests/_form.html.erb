@@ -1,0 +1,18 @@
+<h1> <%= test_header(test) %></h1>
+
+<%= form_with(model: [:admin, test], local: true ) do |form| %>
+<p>
+  <div class="field">
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  </div>
+
+  <p><div class="field">
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :title %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,9 +1,9 @@
 <tr>
-  <td><%= link_to test.title, test_path(test) %></td>
+  <td><%=  test.title %></td>
   <td><%= test.category.title %></td>
   <td><%= test_level(test) %></td>
   <td><%= test.questions.count %></td>
-  <td><%= test.author.name %></td>
+  <td><%= test.author.email %></td>
   <td><%= button_to 'Start', start_test_path(test)  %></td>
 
 </tr>

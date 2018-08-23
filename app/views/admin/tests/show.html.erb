@@ -1,0 +1,11 @@
+<h1>Тест: <%=@test.title%></h1>
+<h3>Level: <%= @test.level%></h3>
+<%= link_to 'New question', new_admin_test_question_path(@test) %>
+<br>
+<h2> Questions</h2>
+<ol>
+  <%= render @test.questions %>
+</ol>
+
+<%= link_to 'Destroy', @question, method: :delete %>
+<%= link_to 'Back', admin_tests_path%>

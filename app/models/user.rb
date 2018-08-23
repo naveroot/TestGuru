@@ -1,7 +1,16 @@
 # frozen_string_literal: true
-require 'digest/sha1'
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :trackable,
+         :confirmable
+
   attr_reader :password
   attr_writer :password_confirmation
 
@@ -11,10 +20,6 @@ class User < ApplicationRecord
   has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
 
   validates :email, presence: true, uniqueness: true
-  # validates :password_digest, presence: true, if: Proc.new { |u| u.password_digest.blank? }
-  # validates :password, confirmation: true
-
-  has_secure_password
 
   def tests_with_level(level)
     tests.where(level: level)
@@ -22,5 +27,9 @@ class User < ApplicationRecord
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test)
+  end
+
+  def admin?
+    self.is_a? Admin
   end
 end

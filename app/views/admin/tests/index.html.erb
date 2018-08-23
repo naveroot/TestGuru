@@ -1,0 +1,14 @@
+<h1>All Tests</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Level</th>
+    <th>Questions</th>
+    <th>Author</th>
+  </tr>
+  <%= render @tests %>
+</table>
+
+<p><%= link_to 'Создать тест', new_admin_test_path %></p>
