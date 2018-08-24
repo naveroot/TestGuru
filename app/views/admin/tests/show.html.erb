@@ -1,11 +1,11 @@
-<h1>Тест: <%=@test.title%></h1>
-<h3>Level: <%= @test.level%></h3>
-<%= link_to 'New question', new_admin_test_question_path(@test) %>
+<h1><%= t('tests.index.title') %>: <%=@test.title%></h1>
+<h3><%= t('tests.index.level') %>: <%= @test.level%></h3>
+<%= link_to t('links.new_question'), new_admin_test_question_path(@test) %>
 <br>
-<h2> Questions</h2>
+<h2><%= t('tests.index.questions') %></h2>
 <ol>
   <%= render @test.questions %>
 </ol>
 
-<%= link_to 'Destroy', @question, method: :delete %>
-<%= link_to 'Back', admin_tests_path%>
+<%= link_to t('links.delete'), @question, method: :delete %>
+<%= link_to t('links.back'), admin_tests_path%>
