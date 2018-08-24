@@ -1,10 +1,22 @@
-<div class="topnav">
-  <a class="active" href="/">TestGuru</a>
+<nav class="navbar navbar-light bg-light">
+  <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
+  <span class="navbar-text">
   <% if user_signed_in? %>
       <%= link_to t('links.logout'), destroy_user_session_path, method: :delete %>
-    <% else %>
+      <% else %>
       <%= link_to t('links.sign_in'), new_user_session_path%>
       <%= link_to t('links.sign_up'), new_user_registration_path %>
-  <% end %>
-</div>
+      <% end %>
+    </span>
+</nav>
+
+<!--<div class="topnav">-->
+<!--  <a class="active" href="/">TestGuru</a>-->
+  <%# if user_signed_in? %>
+      <%#= link_to t('links.logout'), destroy_user_session_path, method: :delete %>
+    <%# else %>
+      <%#= link_to t('links.sign_in'), new_user_session_path%>
+      <%#= link_to t('links.sign_up'), new_user_registration_path %>
+  <%# end %>
+<!--</div>-->
 
