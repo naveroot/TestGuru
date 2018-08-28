@@ -1,11 +1,17 @@
-<h1><%= t('tests.index.title') %>: <%=@test.title%></h1>
-<h3><%= t('tests.index.level') %>: <%= @test.level%></h3>
-<%= link_to t('links.new_question'), new_admin_test_question_path(@test) %>
-<br>
-<h2><%= t('tests.index.questions') %></h2>
-<ol>
-  <%= render @test.questions %>
-</ol>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8">
+    <p><h2><%= t('tests.index.title') %>: <%=@test.title%></h2></p>
+    <p><h4><%= t('tests.index.level') %>: <%= @test.level%></h4></p>
+    <p><%= link_to t('links.new_question'), new_admin_test_question_path(@test), class: 'btn btn-primary' %></p>
+    <table class="table">
+      <h3><%= t('tests.index.questions') %></h3>
+        <ol>
+          <%= render @test.questions %>
+        </ol>
+    </table>
 
-<%= link_to t('links.delete'), @question, method: :delete %>
-<%= link_to t('links.back'), admin_tests_path%>
+    <%= link_to t('links.delete'), @question, method: :delete, class: 'btn btn-primary' %>
+    <%= link_to t('links.back'), admin_tests_path, class: 'btn'%>
+    <%= link_to t('links.edit'), edit_admin_test_path(@test), class: 'btn'%>
+  </div>
+</div>

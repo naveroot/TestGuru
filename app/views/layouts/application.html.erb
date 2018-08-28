@@ -11,9 +11,11 @@
   </head>
 
   <body>
-  <p><%= render 'shared/navbar' %></p>
-  <%= render 'shared/errors' %>
-  <div class="container"><%= yield %></div>
+ <%= render 'shared/navbar' %>
+ <%= flash_alerts %>
+  <div class="container justify-content-center">
+    <%= yield %>
+  </div>
 
   <%= render 'shared/footer' %>
   </body>

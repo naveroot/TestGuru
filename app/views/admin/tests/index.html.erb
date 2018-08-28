@@ -1,14 +1,25 @@
-<h1><%= t('.header') %></h1>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8 user-tests-table">
+    <div class="p-4">
+      <h1><%= t('.header') %></h1>
+    </div>
 
-<table>
-  <tr>
-    <th><%= t('.title') %></th>
-    <th><%= t('.category') %></th>
-    <th><%= t('.level') %></th>
-    <th><%= t('.questions') %></th>
-    <th><%= t('.author') %></th>
-  </tr>
-  <%= render @tests %>
-</table>
+    <table class="table table-hover">
+      <thead class="thead-inverse">
+      <tr>
+        <th><%= t('.title') %></th>
+        <th><%= t('.category') %></th>
+        <th><%= t('.level') %></th>
+        <th><%= t('.questions') %></th>
+        <th><%= t('.author') %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @tests %>
+      </tbody>
+    </table>
+    <p><%= link_to t('links.new_test'), new_admin_test_path, class: 'btn btn-primary' %></p>
+  </div>
+</div>
 
-<p><%= link_to t('links.new_test'), new_admin_test_path %></p>
+

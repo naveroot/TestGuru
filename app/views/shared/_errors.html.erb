@@ -1,3 +1,14 @@
-<% flash.each do |key, message| %>
-  <%= content_tag :p, message, class: "flash #{key}" %>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-6">
+    <% if resource.errors.present? %>
+      <div>
+        <h3><%= t('.header', count: resource.errors.count) %>:</h3>
+        <ul>
+          <% resource.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>

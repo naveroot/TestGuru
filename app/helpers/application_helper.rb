@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module ApplicationHelper
   def current_year
     Date.current.year
@@ -9,15 +7,13 @@ module ApplicationHelper
     link_to 'GitHub', "https://github.com/#{author}/#{repo}", target: :blank
   end
 
-  def flash_messages
-    content_tag :p, flash[:alert], class: 'flash alert' if flash[:alert]
+  def bootstrap_class_for_flash(flash_type)
+    { success: "alert-success", error: "alert-danger", alert: "alert-warning", notice: "alert-info" }[flash_type.to_sym] || flash_type.to_s
   end
 
-  def welcome_message
-    if user_signed_in?
-      content_tag :div, class: 'nav user' do
-        "Welcome, #{current_user.name} Guru"
-      end
-    end
+  def flash_alerts
+    massages = ''
+    flash.each { |key, value| massages << content_tag(:p, value, class: "flash #{bootstrap_class_for_flash(key)}") }
+    massages.html_safe
   end
 end

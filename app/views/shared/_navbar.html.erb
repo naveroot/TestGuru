@@ -1,22 +1,13 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-dark bg-dark">
   <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
-  <span class="navbar-text">
-  <% if user_signed_in? %>
-      <%= link_to t('links.logout'), destroy_user_session_path, method: :delete %>
+    <span class="navbar-text">
+      <% if user_signed_in? %>
+        <%= link_to t('links.admin_panel'), admin_tests_path if current_user.is_a?(Admin) %>
+        <%= link_to t('links.logout'), destroy_user_session_path, method: :delete %>
       <% else %>
-      <%= link_to t('links.sign_in'), new_user_session_path%>
-      <%= link_to t('links.sign_up'), new_user_registration_path %>
+        <%= link_to t('links.sign_in'), new_user_session_path%>
+        <%= link_to t('links.sign_up'), new_user_registration_path %>
       <% end %>
     </span>
 </nav>
-
-<!--<div class="topnav">-->
-<!--  <a class="active" href="/">TestGuru</a>-->
-  <%# if user_signed_in? %>
-      <%#= link_to t('links.logout'), destroy_user_session_path, method: :delete %>
-    <%# else %>
-      <%#= link_to t('links.sign_in'), new_user_session_path%>
-      <%#= link_to t('links.sign_up'), new_user_registration_path %>
-  <%# end %>
-<!--</div>-->
 
