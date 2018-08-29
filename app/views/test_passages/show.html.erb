@@ -26,6 +26,7 @@
         <% end %>
         <p>
           <%= form.submit t('.'), class: 'btn btn-primary mt-3' %>
+          <%= link_to 'Add to Gist', gist_test_passage_path(@test_passage), method: :post %>
         </p>
       </div>
     <% end %>

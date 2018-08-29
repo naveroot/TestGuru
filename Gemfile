@@ -11,6 +11,9 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'devise'
 # locales
 gem 'rails-i18n'
+# GitHub API
+gem "octokit", "~> 4.0"
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
