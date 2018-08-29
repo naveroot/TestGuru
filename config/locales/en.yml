@@ -20,6 +20,8 @@ en:
       create:
         success: "Test was successfully created"
       index:
+        question: "Question"
+        link: "URL"
         header: "Edit tests"
         title: "Title"
         level: "Level"
@@ -98,3 +100,8 @@ en:
     answer: "Answers:"
     correct: "Correct:"
     questions: "Question:"
+  gist:
+    description: "Question %{title} from TestGuru"
+    success: "Gist %{link} saved successful"
+    failure: "Gist did not save!"
+    button: "Save in Gist"

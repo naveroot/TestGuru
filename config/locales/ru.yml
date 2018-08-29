@@ -22,6 +22,8 @@ ru:
       create:
         success: "Тест успешно создан"
       index:
+        question: "Вопрос"
+        link: "URL"
         header: "Редактировать тесты"
         title: "Название"
         level: "Уровень"
@@ -106,3 +108,8 @@ ru:
     answer: "Ответы:"
     correct: "Верный ответ?"
     questions: "Вопрос:"
+  gist:
+    description: "Вопрос %{title} из TestGuru"
+    success: "Gist %{link} успешно сохранен"
+    failure: "Во время сохранения gist произошла ошибка"
+  button: "Сохранить в Gist"

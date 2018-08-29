@@ -12,7 +12,7 @@
 
   <body>
  <%= render 'shared/navbar' %>
- <%= flash_messages %>
+ <%= flash_messages.html_safe %>
   <div class="container justify-content-center">
     <%= yield %>
   </div>
