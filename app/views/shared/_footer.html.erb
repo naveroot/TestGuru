@@ -1,12 +1,8 @@
-<div class="footer">
-  <div align="center">
-    <p>
+<div class="container-fluid footer bg-dark" >
+    <div class="p-1 row justify-content-center">
       <a href="https://thinknetica.com/" target="_blank"> <img src="https://static.tildacdn.com/tild3265-3330-4331-a437-383435333261/thinknetica_transparent.png"></a>
-    </p>
-    <%= current_year %>
-    <%= github_url('naveroot','TestGuru')  %>
-    <p>
-      Pushkin Ivan <%= link_to '🔒', admin_tests_path %>
-    </p>
-  </div>
+    </div>
+    <div class="p-1 row justify-content-center text-light"> <%= current_year %></div>
+    <div class="p-1 row justify-content-center text-light"> <%= github_url('naveroot','TestGuru')  %>    </div>
+    <div class="p-1 row justify-content-center text-light"> Pushkin Ivan <%= link_to '🔒', admin_tests_path %>    </div>
 </div>

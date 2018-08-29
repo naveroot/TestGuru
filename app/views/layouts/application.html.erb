@@ -4,16 +4,19 @@
     <title>TestGuru</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <p><%= render 'shared/navbar' %></p>
-  <%= render 'shared/errors' %>
+ <%= render 'shared/navbar' %>
+ <%= flash_messages %>
+  <div class="container justify-content-center">
+    <%= yield %>
+  </div>
 
-  <%= yield %>
   <%= render 'shared/footer' %>
   </body>
 </html>
