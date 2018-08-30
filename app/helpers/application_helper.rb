@@ -12,7 +12,7 @@ module ApplicationHelper
 
   def flash_messages
     tags = flash.map do |key, value|
-      content_tag(:p, value, class: "flash #{bootstrap_class_for_flash(key)}")
+      content_tag(:p, value.html_safe, class: "flash #{bootstrap_class_for_flash(key)}")
     end
     safe_join(tags)
   end

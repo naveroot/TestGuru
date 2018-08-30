@@ -110,6 +110,6 @@ ru:
     questions: "Вопрос:"
   gist:
     description: "Вопрос %{title} из TestGuru"
-    success: "Gist %{link} успешно сохранен"
+    success: "%{link} успешно сохранен"
     failure: "Во время сохранения gist произошла ошибка"
   button: "Сохранить в Gist"
