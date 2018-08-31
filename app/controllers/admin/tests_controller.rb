@@ -4,6 +4,7 @@ class Admin::TestsController < Admin::BaseController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_test_not_found
 
   def index
+    @gists = Gist.all
     @tests = Test.all
   end
 
