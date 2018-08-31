@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GistQuestionService
-  attr_reader :responce
+  attr_reader :response
 
   def initialize(question, client: default_client)
     @question = question
@@ -10,11 +10,11 @@ class GistQuestionService
   end
 
   def call
-    @responce = @client.create_gist(gist_params)
+    @response = @client.create_gist(gist_params)
   end
 
   def success?
-    @responce&.html_url.present?
+    @response&.html_url.present?
   end
 
   private
