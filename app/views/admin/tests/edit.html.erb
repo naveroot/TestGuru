@@ -3,6 +3,7 @@
     <div class="p-4">
       <h1 class="p-"><%= t('.header', title: @test.title) %></h1>
     </div>
+    <%= render 'shared/errors', resource: @test %>
     <%= render 'form', test: @test  %>
   </div>
 </div>

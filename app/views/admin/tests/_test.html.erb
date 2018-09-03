@@ -1,5 +1,12 @@
-<tr>
-  <td><%= link_to test.title, admin_test_path(test) %></td>
+<tr class="align-middle">
+  <td>
+    <%= octicon "pencil", class: 'form-inline-link pointer', data: { test_id: test.id } %>
+    <%= octicon "circle-slash", class: 'form-inline-link hide form-inline-reject-link pointer', data: { test_id: test.id } %>
+  </td>
+  <td>
+    <%= content_tag :span, (link_to test.title, admin_test_path(test)), class: 'test-title', data: {test_id: test.id} %>
+    <%= render'form_inline', test: test == @test ? @test : test %>
+  </td>
   <td><%= test.category.title %></td>
   <td><%= test_level(test) %></td>
   <td><%= test.questions.count %></td>
