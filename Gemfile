@@ -7,6 +7,7 @@ ruby '2.4.1'
 # UI
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
+gem 'octicons_helper'
 # Auth
 gem 'devise'
 # locales
@@ -15,6 +16,7 @@ gem 'rails-i18n'
 gem "octokit", "~> 4.0"
 # ENV
 gem 'dotenv-rails', groups: [:development, :test]
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
