@@ -10,11 +10,7 @@
           <%= @test_passage.current_question.body %>
         </b>
         <p>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 12%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100">
-          </div>
-        </div>
-        <%= progress_bar(@test_passage) %>
+        <%= render 'progress_bar' %>
         </p>
       </div>
     </div>
