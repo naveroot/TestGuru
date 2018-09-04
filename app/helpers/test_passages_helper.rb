@@ -16,4 +16,8 @@ module TestPassagesHelper
   def progress_bar(test_passage)
     "Вопрос №#{test_passage.current_question_number} из #{test_passage.questions_count}"
   end
+
+  def current_percent_test_passage(test_passage)
+    (test_passage.current_question_number - 1) * 100 / test_passage.questions_count
+  end
 end
