@@ -1,4 +1,8 @@
 ru:
+  feedback:
+    title: 'Тема'
+    body: 'Сообщение'
+    header: 'Новый отзыв'
   hello: "Привет"
   tests:
     index:

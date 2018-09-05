@@ -1,0 +1,28 @@
+<div class="col-12 col-md-8 user-tests-table">
+  <div class="p-4">
+    <h1><%= t('.header') %></h1>
+  </div>
+
+  <%=render 'shared/errors', resource: @test%>
+
+  <table class="table table-hover align-content-center">
+    <thead class="thead-inverse">
+    <tr>
+      <th class="sort-by-title pointer">
+        <%= t('.title') %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th></th>
+      <th><%= t('.category') %></th>
+      <th><%= t('.level') %></th>
+      <th><%= t('.questions') %></th>
+      <th><%= t('.author') %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @tests %>
+    </tbody>
+  </table>
+  <p><%= link_to t('links.new_test'), new_admin_test_path, class: 'btn btn-primary' %></p>
+</div>
