@@ -121,6 +121,11 @@ ru:
     new_question: "Создать Вопрос"
     start: "Начать!"
     tests: "К списку Тестов"
+    logout: "Выйти"
+    sign_in: "Войти"
+    sign_up: "Регистрация"
+    admin_panel: "Панель администратора"
+    feedback: "Оставить отзыв"
   label:
     answer: "Ответы:"
     correct: "Верный ответ?"
