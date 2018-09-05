@@ -1,4 +1,4 @@
 <%= render 'form', question: @question, test: @test %>
 
-<%= link_to t('links.show'), @question %>
-<%= link_to t('links.back'), test_questions_path(@question.test_id)%>
+<%= link_to t('links.show'), admin_test_questions_path(@question) %>
+<%= link_to t('links.back'), admin_test_path(@question.test_id)%>

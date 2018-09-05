@@ -1,5 +1,8 @@
-
 en:
+  feedback:
+    title: 'Subject'
+    body: 'Message'
+    header: 'NewFeedback'
   hello: "Welcome"
   tests:
     index:
