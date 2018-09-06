@@ -2,6 +2,13 @@
 
 Rails.application.routes.draw do
 
+  get 'badges_controller/index'
+  get 'badges_controller/show'
+  get 'badges_controller/new'
+  get 'badges_controller/create'
+  get 'badges_controller/edit'
+  get 'badges_controller/update'
+  get 'badges_controller/destroy'
   root to: 'tests#index'
   devise_for :users, path: :gurus, path_names: {sign_in: :login, sign_out: :logout},
              controllers: {sessions: 'sessions'}
@@ -20,6 +27,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges_controller
     resources :tests do
       patch :update_inline, on: :member
 
