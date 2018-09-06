@@ -1,7 +1,7 @@
 ru:
   mail:
     feedback:
-      subject: 'Вы только что получили отзыв от '
+      subject: 'Вы только что получили отзыв от %{first_name} %{last_name}'
       sended: 'Ваш отзыв был успешно отправлен. Спасибо!'
   feedback:
     title: 'Тема'
