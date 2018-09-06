@@ -30,6 +30,8 @@ ru:
         sign_up: "Регистрация"
         admin_panel: "Панель администратора"
         feedback: "Оставить отзыв"
+      achievements:
+        achievements: 'Редактировать достижения'
   admin:
     tests:
       index_tests_table:

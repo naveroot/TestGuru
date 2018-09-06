@@ -17,6 +17,16 @@ module ApplicationHelper
     safe_join(tags)
   end
 
+  def user_badges(user)
+    badges = user.badges
+    html = badges.map do |badge|
+      content_tag :div, class: 'p-2' do
+        image_tag badge.badge_image, size: 40, class: 'rounded-circle', alt: badge.title
+      end
+    end
+    safe_join(html)
+  end
+
   private
 
   def bootstrap_class_for_flash(flash_type)
