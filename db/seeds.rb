@@ -8,6 +8,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # users = User.create! [{ name: 'User1', email: 'test@test.ru' }, { name: 'User2', email: 'test1@test.ru' }]
+Admin.create email: "test@test.ru",
+             first_name: "Иван",
+             last_name: "Пупкин",
+             encrypted_password: "$2a$11$QxWue1wSaqm5/QSIk/Oz/uEgyIUxXvmfUeoNFMBCMXwuVci4tOkXy"
 
 categories = Category.create! [{ title: 'JS' },
                                { title: 'Ruby' },

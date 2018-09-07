@@ -18,12 +18,18 @@ module ApplicationHelper
   end
 
   def user_badges(user)
-    badges = user.badges
-    html = badges.map do |badge|
+    user_badges = {}
+    Badge::BADGE_RULES.each do |rule|
+      user_badges[rule.to_sym] = { count: user.badges.where(rule: rule).count,
+                                   image: Badge.where(rule: rule).first.badge_image }
+    end
+
+    html = user_badges.map do |_key, value|
       content_tag :div, class: 'p-2' do
-        image_tag badge.badge_image, size: 40, class: 'rounded-circle', alt: badge.title
+        "#{image_tag value[:image], size: 40, class: 'rounded-circle'} X #{value[:count]}".html_safe
       end
     end
+
     safe_join(html)
   end
 
