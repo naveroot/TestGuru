@@ -8,10 +8,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # users = User.create! [{ name: 'User1', email: 'test@test.ru' }, { name: 'User2', email: 'test1@test.ru' }]
-Admin.create email: "test@test.ru",
-             first_name: "Иван",
-             last_name: "Пупкин",
-             encrypted_password: "$2a$11$QxWue1wSaqm5/QSIk/Oz/uEgyIUxXvmfUeoNFMBCMXwuVci4tOkXy"
+badges = Badge.create! [{ title: 'Easy!', badge_image: 'privateinvestocat.jpg', rule: 'first_try', description: nil},
+                        { title: 'All in level!', badge_image: 'hanukkat.png', rule: 'all_tests_in_level', description: nil},
+                        { title: 'All in category!', badge_image: 'mcefeeline.jpg', rule: 'all_tests_in_category', description: nil}]
 
 categories = Category.create! [{ title: 'JS' },
                                { title: 'Ruby' },

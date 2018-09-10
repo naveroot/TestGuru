@@ -1,25 +1,22 @@
-<%= form_with model: [:admin, @badge], local: true do |form| %>
-  <%= render 'shared/errors', resource: @badge %>
-
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :badge_image %><br>
-    <%= form.text_field :badge_image %>
-  </p>
-
-  <p>
-    <%= form.label :rule %><br>
-    <%= form.select :rule, options_for_select(Badge::BADGE_RULES) %>
-  </p>
-
-  <p>
-    <%= form.label :parameter %> <br>
-    <%= form.text_field :parameter %>
-  </p>
-
-  <p><%= form.submit %></p>
-<% end %>
+<div class="card border-primary">
+  <div class="card-body">
+    <%= form_with(model: [:admin, @badge], local: true ) do |form| %>
+      <div class="form-group">
+        <p>
+          <%= form.label :title %>
+          <%= form.text_field :title, class: 'form-control' %>
+        </p>
+        <p>
+          <%= form.label :rule %>
+          <%= form.select :rule, options_for_select(Badge::BADGE_RULES), class: 'form-control' %>
+        </p>
+        <p>
+          <%= form.label :description %>
+          <%= form.text_field :description, class: 'form-control' %>
+        </p>
+        <%= form.submit class: 'btn btn-primary'%>
+        <%= link_to t('links.back'), admin_tests_path, class: 'btn'%>
+    <% end %>
+    </div>
+  </div>
+</div>

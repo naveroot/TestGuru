@@ -25,6 +25,7 @@ module ApplicationHelper
     end
 
     html = user_badges.map do |_key, value|
+      next unless value[:count] > 0
       content_tag :div, class: 'p-2' do
         "#{image_tag value[:image], size: 40, class: 'rounded-circle'} X #{value[:count]}".html_safe
       end

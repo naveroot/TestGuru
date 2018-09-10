@@ -33,6 +33,9 @@ ru:
       achievements:
         achievements: 'Редактировать достижения'
   admin:
+    badges:
+      update:
+        success: 'Бейдж обновлен'
     tests:
       index_tests_table:
         header: "Доступные тесты"
