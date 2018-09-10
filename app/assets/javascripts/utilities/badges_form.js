@@ -1,12 +1,12 @@
 document.addEventListener('turbolinks:load', function() {
-    var control = document.querySelector('select');
+    var control = document.querySelector('#badge_rule');
     control.addEventListener('change',availableOptions);
 })
 
 function availableOptions() {
     var category = document.querySelector('.category')
     var level = document.querySelector('.level')
-    var control = document.querySelector('select');
+    var control = document.querySelector('#badge_rule');
 
     if (control.value=== 'all_tests_in_level') {
         level.classList.remove('hide');

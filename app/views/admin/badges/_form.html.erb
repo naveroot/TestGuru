@@ -6,6 +6,14 @@
           <%= form.label :title %>
           <%= form.text_field :title, class: 'form-control' %>
         </p>
+
+        <p>
+          <%= form.label :badge_image%>
+          <%= form.select :badge_image, options_for_select(Badge::BADGE_IMAGES), class: 'form-control', id: :rule_options%>
+        </p>
+        <p>
+          <%#= image_tag @badge.badge_image, class: 'badge_image', size: 50 %>
+        </p>
         <p>
           <%= form.label :rule, id: :rule%>
           <%= form.select :rule, options_for_select(Badge::BADGE_RULES), class: 'form-control', id: :rule_options%>

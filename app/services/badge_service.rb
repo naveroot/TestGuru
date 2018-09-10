@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BadgeService
   def initialize(test_passage)
     @test_passage = test_passage
@@ -9,20 +11,20 @@ class BadgeService
   def call
     badges = Badge.all
     badges.each do |badge|
-      get_bage(badge, @user)
+      get_badge(badge, @user)
     end
   end
 
   private
 
-  def get_bage(badge, user)
+  def get_badge(badge, user)
     case badge.rule
     when 'first_try'
       condition = @test_passage.success? && TestPassage.where(user_id: @user.id, test_id: @test.id).count < 2
     when 'all_tests_in_category'
-      condition = all_test_in_category_pass?(badge.category)
+      condition = all_test_in_category_pass?(badge)
     when 'all_tests_in_level'
-      condition = all_test_in_level_pass?(badge.level)
+      condition = all_test_in_level_pass?(badge)
     end
     UserBadge.create(user_id: user.id, badge_id: badge.id) if !!condition
   end
@@ -31,12 +33,16 @@ class BadgeService
     @test_passage.success? && TestPassage.where(user_id: @user.id, test_id: @test.id).count < 2
   end
 
-  def all_test_in_level_pass?(level)
-    (tests_in_level(level) - success_user_tests(@user)).empty? && !success_user_tests(@user).empty?
+  def all_test_in_level_pass?(badge)
+    (tests_in_level(badge.level) - success_user_tests(@user)).empty? &&
+      !success_user_tests(@user).empty? &&
+      !@user.has_badge?(badge)
   end
 
-  def all_test_in_category_pass?(category_title)
-    (tests_in_category(category_title) - success_user_tests(@user)).empty? && !success_user_tests(@user).empty?
+  def all_test_in_category_pass?(badge)
+    (tests_in_category(badge.category.title) - success_user_tests(@user)).empty? &&
+      !success_user_tests(@user).empty? &&
+      !@user.has_badge?(badge)
   end
 
   def success_user_tests(user)

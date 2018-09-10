@@ -37,4 +37,8 @@ class User < ApplicationRecord
   def admin?
     self.is_a? Admin
   end
+
+  def has_badge?(badge)
+    badges.include? badge
+  end
 end
