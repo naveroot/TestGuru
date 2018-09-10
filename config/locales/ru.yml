@@ -1,4 +1,12 @@
 ru:
+  mail:
+    feedback:
+      subject: 'Вы только что получили отзыв от '
+      sended: 'Ваш отзыв был успешно отправлен. Спасибо!'
+  feedback:
+    title: 'Тема'
+    body: 'Сообщение'
+    header: 'Новый отзыв'
   hello: "Привет"
   tests:
     index:
@@ -9,7 +17,6 @@ ru:
       questions: "Вопросы"
       actions: "Начать"
       author: "Автор"
-
   shared:
     errors:
       header:
@@ -17,20 +24,34 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+      navbar:
+        logout: "Выйти"
+        sign_in: "Войти"
+        sign_up: "Регистрация"
+        admin_panel: "Панель администратора"
+        feedback: "Оставить отзыв"
   admin:
     tests:
-      create:
-        success: "Тест успешно создан"
-      index:
-        question: "Вопрос"
-        link: "URL"
-        header: "Редактировать тесты"
+      index_tests_table:
+        header: "Доступные тесты"
         title: "Название"
         level: "Уровень"
         category: "Категория"
         questions: "Вопросы"
-        actions: "Действия"
+        actions: "Начать"
         author: "Автор"
+      index_gists_table:
+        header: "Созданные Gists"
+        question: "Вопрос"
+        author: "Автор"
+        link: "URL"
+      index_feedback_table:
+        header: "Отзывы"
+        title: "Тема"
+        author: "Автор"
+        body: "Содержание"
+      create:
+        success: "Тест успешно создан"
       new:
         header: "Создать Тест"
       edit:
@@ -79,7 +100,7 @@ ru:
       success: "Gist успешно создан"
       failure: "Не удалось создать гист"
     show:
-      header: "Сейчас вы проходите %{title} тест"
+      header: "Сейчас вы проходите:  %{title}"
     result:
       header: "Тест %{title} успешно завершен"
       result: "Ваш результат"
@@ -99,11 +120,12 @@ ru:
     new_test: "Создать Тест"
     new_question: "Создать Вопрос"
     start: "Начать!"
+    tests: "К списку Тестов"
     logout: "Выйти"
     sign_in: "Войти"
     sign_up: "Регистрация"
-    tests: "К списку Тестов"
     admin_panel: "Панель администратора"
+    feedback: "Оставить отзыв"
   label:
     answer: "Ответы:"
     correct: "Верный ответ?"
