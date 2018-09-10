@@ -19,15 +19,15 @@ module ApplicationHelper
 
   def user_badges(user)
     user_badges = {}
-    Badge::BADGE_RULES.each do |rule|
-      user_badges[rule.to_sym] = { count: user.badges.where(rule: rule).count,
-                                   image: Badge.where(rule: rule).first.badge_image }
+    Badge.all.to_a.each do |badge|
+      user_badges[badge.title] = { count: UserBadge.where(user_id: user.id, badge_id: badge.id).count,
+                                   image: badge.badge_image}
     end
 
-    html = user_badges.map do |_key, value|
+    html = user_badges.map do |key, value|
       next unless value[:count] > 0
       content_tag :div, class: 'p-2' do
-        "#{image_tag value[:image], size: 40, class: 'rounded-circle'} X #{value[:count]}".html_safe
+        "#{image_tag value[:image], size: 40, alt: key, class: 'rounded-circle'} X #{value[:count]}".html_safe
       end
     end
 
