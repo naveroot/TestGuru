@@ -9,9 +9,7 @@ class TestPassage < ApplicationRecord
   scope :by_user, ->(user) {where(user_id: user.id)}
   scope :success, ->{ where(success: true) }
 
-  def test_category
-    test.category
-  end
+  delegate :category, to: :test, prefix: true
 
   def accept!(answers_ids)
     self.correct_questions += 1 if correct_answer?(answers_ids)
@@ -42,7 +40,7 @@ class TestPassage < ApplicationRecord
   private
 
   def before_save_set_success
-    self.success = true if success?
+    self.success = success?
   end
 
   def before_save_set_next_question

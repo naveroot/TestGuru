@@ -10,8 +10,7 @@ class FeedbackController < ApplicationController
       FeedbacksMailer.new_feedback(@feedback).deliver_now
       redirect_to root_path, notice: t('mail.feedback.sended')
     else
-      flash[:alert] = t('mail.feedback.error')
-      flash.now
+      flash.now[:alert] = t('mail.feedback.error')
       render :new
     end
   end

@@ -2,13 +2,6 @@
 
 Rails.application.routes.draw do
 
-  get 'badges_controller/index'
-  get 'badges_controller/show'
-  get 'badges_controller/new'
-  get 'badges_controller/create'
-  get 'badges_controller/edit'
-  get 'badges_controller/update'
-  get 'badges_controller/destroy'
   root to: 'tests#index'
   devise_for :users, path: :gurus, path_names: {sign_in: :login, sign_out: :logout},
              controllers: {sessions: 'sessions'}
@@ -17,7 +10,7 @@ Rails.application.routes.draw do
     post :start, on: :member
   end
 
-  resources :feedback, only: %i[ new create]
+  resources :feedback, only: %i[new create]
 
   resources :test_passages, only: %i[show update] do
     member do

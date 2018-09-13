@@ -12,21 +12,37 @@
           <%= form.select :badge_image, options_for_select(Badge::BADGE_IMAGES), class: 'form-control', id: :rule_options%>
         </p>
         <p>
-          <%#= image_tag @badge.badge_image, class: 'badge_image', size: 50 %>
-        </p>
-        <p>
           <%= form.label :rule, id: :rule%>
           <%= form.select :rule, options_for_select(Badge::BADGE_RULES), class: 'form-control', id: :rule_options%>
         </p>
         <p class="category hide">
           <%= form.label :category_id %>
-          <%= form.collection_select :category_id, Category.all, :id, :title, class: 'form-control' %>
+          <%= form.collection_select :rule_params, Category.all, :id, :title, class: 'form-control' %>
         </p>
-        <p class="level hide">
-          <%= form.label :level %>
-          <%= form.number_field :level, id: :test_level, class: 'form-control' %>
+        <p>        В параметрах укажите id категории или уровень в зависимости от выбранного правила:
         </p>
-        <p>
+
+        <table class="table table-hover">
+          <thead class="thead-inverse">
+          <tr>
+            <th><%= t('.id') %></th>
+            <th><%= t('.title') %></th>
+          </thead>
+          <tbody>
+          <% Category.all.each do |category|  %>
+          <tr>
+            <td><%= category.id %></td>
+            <td><%= category.title %></td>
+          </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <p class="level">
+          <%= form.label :rule_params %>
+          <%= form.number_field :rule_params, id: :test_level, class: 'form-control' %>
+        </p>
+          <p>
           <%= form.label :description %>
           <%= form.text_field :description, class: 'form-control' %>
         </p>
