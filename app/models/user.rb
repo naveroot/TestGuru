@@ -41,7 +41,7 @@ class User < ApplicationRecord
     badges.include? badge
   end
 
-  def get_badges_hash
+  def get_user_badges_hash
     user_badges = {}
     badges_titles = badges.map(&:title).uniq
     badges_titles.each do |badge_title|

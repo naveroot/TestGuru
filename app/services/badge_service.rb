@@ -22,7 +22,7 @@ class BadgeService
   end
 
   def all_tests_in_level_pass?(level)
-    tests_in_level_ids(level) - success_user_tests_ids &&
+    tests_in_level_ids(level) == success_user_tests_ids &&
       !success_user_tests_ids.empty?
   end
 
@@ -32,7 +32,7 @@ class BadgeService
   end
 
   def success_user_tests_ids
-    TestPassage.by_user(@user).success.map(&:test).map(&:id).sort
+    @user.test_passages.success.map(&:test).map(&:id).uniq.sort
   end
 
   def tests_by_category_ids(category_title)

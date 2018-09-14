@@ -13,7 +13,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       badges = BadgeService.new(@test_passage).call
-      add_badges_to_user(badges)
+      current_user.badges << badges
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
@@ -38,9 +38,5 @@ class TestPassagesController < ApplicationController
 
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])
-  end
-
-  def add_badges_to_user(badges)
-    badges.each { |badge| current_user.badges << badge }
   end
 end

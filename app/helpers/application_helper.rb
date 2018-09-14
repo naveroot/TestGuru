@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def user_badges(user)
-    html = user.get_badges_hash.map do |key, value|
+    html = user.get_user_badges_hash.map do |key, value|
       content_tag :div, class: 'p-2' do
         "#{image_tag value[:image], size: 40, alt: key, class: 'rounded-circle'} X #{value[:count]}".html_safe
       end
