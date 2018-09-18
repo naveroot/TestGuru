@@ -11,6 +11,27 @@ class TestPassage < ApplicationRecord
 
   delegate :category, to: :test, prefix: true
 
+  def stop!
+    self.current_question = nil
+  end
+
+  def time_left
+    (expires_at - Time.current).to_i
+  end
+
+  def time_over?
+    expires_at < Time.current
+  end
+
+  def time_remaning
+    if check_timer
+      stop!
+    else
+      accept!(params[:answer_ids])
+    end
+  end
+
+
   def accept!(answers_ids)
     self.correct_questions += 1 if correct_answer?(answers_ids)
     save!
@@ -38,6 +59,14 @@ class TestPassage < ApplicationRecord
 
 
   private
+
+  def check_timer
+    test.timer_exists? && time_over?
+  end
+
+  def expires_at
+    created_at + test.timer.minutes
+  end
 
   def before_save_set_success
     self.success = success?

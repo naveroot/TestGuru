@@ -65,7 +65,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :category_id, :level)
+    params.require(:test).permit(:title, :category_id, :level, :timer)
   end
 
   def rescue_from_test_not_found
