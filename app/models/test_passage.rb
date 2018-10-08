@@ -23,14 +23,6 @@ class TestPassage < ApplicationRecord
     expires_at < Time.current
   end
 
-  def time_remaning
-    if check_timer
-      stop!
-    else
-      accept!(params[:answer_ids])
-    end
-  end
-
 
   def accept!(answers_ids)
     self.correct_questions += 1 if correct_answer?(answers_ids)
@@ -57,12 +49,11 @@ class TestPassage < ApplicationRecord
     points >= 85
   end
 
-
-  private
-
   def check_timer
     test.timer_exists? && time_over?
   end
+
+  private
 
   def expires_at
     created_at + test.timer.minutes

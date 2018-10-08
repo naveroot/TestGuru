@@ -12,7 +12,7 @@
         <p>
         <%= render 'progress_bar' %>
         </p>
-        <p>Осталось времени на выполнение: <%= timer(@test_passage) if @test_passage.test.timer_exists? %></p>
+        <%= timer(@test_passage) %>
       </div>
     </div>
   </div>
