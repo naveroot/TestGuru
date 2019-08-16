@@ -20,4 +20,15 @@ module TestPassagesHelper
   def current_percent_test_passage(test_passage)
     (test_passage.current_question_number - 1) * 100 / test_passage.questions_count
   end
+
+  def timer(test_passage)
+    html =[]
+    if @test_passage.test.timer_exists?
+      content_tag :p do
+        html << "Осталось времени на выполнение: "
+        html << content_tag(:span, test_passage.time_left, class: 'timer', data: { timer: test_passage.time_left })
+        safe_join(html)
+      end
+    end
+  end
 end
