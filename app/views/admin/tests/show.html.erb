@@ -10,7 +10,7 @@
         </ol>
     </table>
 
-    <%= link_to t('links.delete'), @question, method: :delete, class: 'btn btn-primary' %>
+    <%= link_to t('links.delete'), admin_test_path(@test), method: :delete, class: 'btn btn-primary' %>
     <%= link_to t('links.back'), admin_tests_path, class: 'btn'%>
     <%= link_to t('links.edit'), edit_admin_test_path(@test), class: 'btn'%>
   </div>

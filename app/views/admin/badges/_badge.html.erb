@@ -1,0 +1,12 @@
+<div class="card badge-card mx-3 bg-light">
+  <%= image_tag badge.badge_image, class: 'card-img-top', alt: "Card image cap", size: 320%>
+  <div class="card-body">
+    <h4 class="card-title"><%= badge.title %></h4>
+    <p class="card-text"><%= badge.rule %></p>
+    <p class="card-text"><%= badge.rule_param %></p>
+    <div class="btn-group " role="group" aria-label="Basic example">
+      <%= link_to t('links.edit'), edit_admin_badge_path(badge), class: 'btn btn-secondary' %>
+      <%= link_to t('links.delete'), admin_badge_path(badge), method: :delete, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,7 @@
 
   <body>
  <%= render 'shared/navbar' %>
+ <%= render 'shared/achievements' if user_signed_in? %>
  <%= flash_messages %>
   <div class="container justify-content-center">
     <%= yield %>

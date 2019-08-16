@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     post :start, on: :member
   end
 
-  resources :feedback, only: %i[ new create]
+  resources :feedback, only: %i[new create]
 
   resources :test_passages, only: %i[show update] do
     member do
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
 

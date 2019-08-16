@@ -16,6 +16,8 @@ class User < ApplicationRecord
 
   has_many :test_passages
   has_many :tests, through: :test_passages
+  has_many :user_badges
+  has_many :badges, through: :user_badges
   has_many :gists
   has_many :feedbacks
 
@@ -32,6 +34,20 @@ class User < ApplicationRecord
   end
 
   def admin?
-    self.is_a? Admin
+    is_a? Admin
+  end
+
+  def has_badge?(badge)
+    badges.include? badge
+  end
+
+  def get_user_badges_hash
+    user_badges = {}
+    badges_titles = badges.map(&:title).uniq
+    badges_titles.each do |badge_title|
+      user_badges[badge_title.to_sym] = { count: badges.by_title(badge_title).count,
+                                          image: badges.by_title(badge_title).first.badge_image }
+    end
+    user_badges
   end
 end

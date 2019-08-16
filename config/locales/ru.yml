@@ -1,7 +1,7 @@
 ru:
   mail:
     feedback:
-      subject: 'Вы только что получили отзыв от '
+      subject: 'Вы только что получили отзыв от %{first_name} %{last_name}'
       sended: 'Ваш отзыв был успешно отправлен. Спасибо!'
   feedback:
     title: 'Тема'
@@ -30,7 +30,12 @@ ru:
         sign_up: "Регистрация"
         admin_panel: "Панель администратора"
         feedback: "Оставить отзыв"
+      achievements:
+        achievements: 'Редактировать достижения'
   admin:
+    badges:
+      update:
+        success: 'Бейдж обновлен'
     tests:
       index_tests_table:
         header: "Доступные тесты"
@@ -111,6 +116,7 @@ ru:
     fail: "Тест не пройден"
     pass: "Тест пройден"
   links:
+    new_badge: 'Создать новый бейдж'
     back: "Назад"
     edit: "Изменить"
     delete: "Удалить"

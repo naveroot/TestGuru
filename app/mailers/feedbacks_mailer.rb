@@ -1,18 +1,10 @@
 # frozen_string_literal: true
 
 class FeedbacksMailer < ApplicationMailer
-  before_action :find_admins
+  default to: ->{ Admin.pluck(:email)}
 
   def new_feedback(feedback)
     @feedback = feedback
-    @recipients = @admins.map(&:email).join(',')
-    mail  to: @recipients,
-          subject: "#{I18n.t('mail.feedback.subject')} #{@feedback.user.first_name} #{@feedback.user.last_name}"
-  end
-
-  private
-
-  def find_admins
-    @admins = Admin.all
+    mail subject: I18n.t('mail.feedback.subject', first_name: @feedback.user.first_name, last_name: @feedback.user.last_name)
   end
 end
